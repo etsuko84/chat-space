@@ -4,11 +4,11 @@
 
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique:true|
+|name|string|null: false, unique:true, index: true|
 
 
 ### Association
-- has_many:groups,through:members
+- has_many :groups, through: :members
 - has_many :members
 - has_many :messages
 
@@ -34,8 +34,8 @@
 |group_name|string|null: false|
 
 ### Association
-- belongs_to :member
-- belongs_to :massage
+- has_many :members
+- has_many :massages
 
 
 
@@ -43,8 +43,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 |body|text||
 |image|string||
 
