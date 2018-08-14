@@ -5,10 +5,10 @@
 |column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique:true|
-|email|string|null: false, unique:true|
-|password|string|null: false|
+
 
 ### Association
+- has_many:groups,through:members
 - has_many :members
 - has_many :messages
 
@@ -18,8 +18,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -34,8 +34,8 @@
 |group_name|string|null: false|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :member
+- belongs_to :massage
 
 
 
@@ -45,9 +45,8 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|body|text|null: false|
+|body|text||
 |image|string||
-|time|timestamps|null: false|
 
 ### Association
 - belongs_to :group
