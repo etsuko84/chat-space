@@ -8,8 +8,8 @@
 
 
 ### Association
-- has_many :groups, through: :members
 - has_many :members
+- has_many :groups, through: :members
 - has_many :messages
 
 
@@ -35,11 +35,12 @@
 
 ### Association
 - has_many :members
+- has_many :users, through: :members
 - has_many :massages
 
 
 
-## massages_table
+## messages_table
 
 |column|Type|Options|
 |------|----|-------|
