@@ -65,6 +65,7 @@
     background-color: #DDD;
     height: 90px;
     padding: 20px 40px 20px 40px;
+    box-sizing: border-box;
     &__message {
       border: none;
       height: 50px;
