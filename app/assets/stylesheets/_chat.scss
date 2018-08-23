@@ -1,3 +1,6 @@
+$box-color: #38AEF0;
+$message-color: #434A54;
+$members-color: #999;
 .chat {
   float: right;
   width: calc(100vw - 300px);
@@ -14,7 +17,7 @@
         padding-bottom: 15px;
       }
       &__members {
-        color: #999;
+        color: $members-color;
         font-size: 12px;
         list-style: none;
         display: flex;
@@ -26,13 +29,13 @@
     .right-header {
       float: right;
       margin-top: 28px;
-      border: 1px solid #38AEF0;
-      color: #38AEF0;
+      border: 1px solid $box-color;
+      color: $box-color;
       height: 40px;
       padding: 0 20px;
       line-height: 40px;
       &__button {
-      color: #38AEF0;
+      color: $box-color;
       text-decoration: none;
       }
     }
@@ -48,16 +51,16 @@
             display: inline-block;
             font-size: 16px;
             font-weight: bold;
-            color: #434A54;
+            color: $message-color;
           }
           .upper-message__date {
             display: inline-block;
             font-size: 12px;
-            color: #999;
+            color: $members-color;
           }
           .lower-message__content {
             font-size: 14px;
-            color: #434A54;
+            color: $message-color;
           }
       }
   }
@@ -71,11 +74,13 @@
       height: 50px;
       float: left;
       padding: 0 10px;
-      width: calc(100% - 150px);
+      width: calc(100% - 130px);
       box-sizing: border-box;
     }
     &__mask {
-      background-color: #fff;
+      position: absolute;
+      bottom: 20px;
+      right: 170px;
       float: left;
       height: 50px;
       padding-right: 10px;
@@ -85,14 +90,14 @@
        }
     }
     &__submit {
-      float: right;
-      margin-left: 15px;
-      background-color: #38AEF0;
+      float: left;
+      background-color: $box-color;
       border: none;
       color: #fff;
       font-size: 16px;
       height: 50px;
       padding: 0 30px;
+      margin-left: 15px;
     }
 
   }
