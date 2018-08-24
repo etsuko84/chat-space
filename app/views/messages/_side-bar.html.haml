@@ -1,0 +1,16 @@
+.side-bar
+  .header
+    %h3.header__name
+      seo
+    %ul.header__list
+      %li.list
+        = link_to '#' do
+          %i{class: "fa fa-pencil-square-o icon"}
+      %li.list
+        = link_to '#' do
+          %i{class: "fa fa-cog icon"}
+  .groups
+    .group
+      = link_to 'sample', '#', class: "group__name"
+      = link_to 'Good bye world!', '#', class: "group__message"
+
