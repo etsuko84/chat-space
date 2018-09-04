@@ -11,6 +11,9 @@
           %i{class: "fa fa-cog icon"}
   .groups
     .group
-      = link_to 'sample', '#', class: "group__name"
-      = link_to 'Good bye world!', '#', class: "group__message"
-
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
