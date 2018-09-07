@@ -5,40 +5,32 @@
     .header
       .left-header
         .left-header__title
-          %h2 sample
+          %h2
+            =@group.name
         %ul.left-header__members
           Members :
-          %li.member seco
-          %li.member neko
+          - @group.members.each do |member|
+            %li.member
+              = member.user.name
       .right-header
         =link_to 'Edit', '#', :class=> "right-header__button"
     .messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            seo
-          .upper-message__date
-            2017-05-18 13:19.51 UTC
-        .lower-message
-          %p.lower-message__content
-            初めまして
-      .message
-        .upper-message
-          .upper-message__user-name
-            seo
-          .upper-message__date
-            2017-05-18 13:20.00 UTC
-        .lower-message
-          %p.lower-message__content
-            よろしくお願いします
+      = render partial: 'message', collection: @messages
     .form
-      %form.new-message
-        %input{:type => "hidden", :value => "seo"}
-        %input{:class => "form__message", :placeholder => "type a message", :type => "text"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'form__message', placeholder: 'type a message'
         .form__mask
-          %label.form__mask__image
-            %i{:class => "fa fa-picture-o icon"}
-        %input{:type => "submit", :value => "Send", :class => "form__submit"}
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        =f.submit 'Send', class: 'form__submit'
+
+        / %input{:type => "hidden", :value => "seo"}
+        / %input{:class => "form__message", :placeholder => "type a message", :type => "text"}
+        / .form__mask
+        /   %label.form__mask__image
+        /     %i{:class => "fa fa-picture-o icon"}
+        / %input{:type => "submit", :value => "Send", :class => "form__submit"}
 
 
 
