@@ -62,6 +62,9 @@ $members-color: #999;
             font-size: 14px;
             color: $message-color;
           }
+          .lower-message__image {
+            width: 200px;
+          }
       }
   }
   .form {
@@ -86,6 +89,9 @@ $members-color: #999;
        .fa {
         font-size: 20px;
         line-height: 50px;
+       }
+       .hidden {
+        display: none
        }
     }
     &__submit {
