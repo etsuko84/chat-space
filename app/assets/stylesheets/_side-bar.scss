@@ -2,6 +2,7 @@
   float: left;
   width: 300px;
   color: #fff;
+
     .header {
       background-color: #253141;
       padding: 0 20px;
@@ -26,6 +27,8 @@
       height: calc(100vh - 100px);
       background-color: #2f3e51;
       padding: 0 20px;
+      padding-bottom: 10000px;
+      margin-bottom: -10000px;
       .group {
         padding: 20px 0 40px;
         &__name {
