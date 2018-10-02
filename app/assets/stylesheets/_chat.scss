@@ -72,6 +72,10 @@ $members-color: #999;
     height: 90px;
     padding: 20px 40px 20px 40px;
     box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    width: calc(100vw - 300px);
+
     &__message {
       border: none;
       height: 50px;
