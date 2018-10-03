@@ -10,7 +10,6 @@ search_list.append(html);
 }
 
 function addMember(user) {
-
   var addUser = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
   <input name='group[user_ids][]' type='hidden' value="${ user.userId }">
   <p class='chat-group-user__name'>${ user.userName }</p>
@@ -26,7 +25,6 @@ search_list.children().remove(":contains('"+name+"')");
 
 function removeMenber(user) {
 $(".chat-group-users.js-add-user").children().remove(":contains('"+user+"')");
-console.log(":contains('"+user+"')")
 }
 
   $("#user-search-field").on("keyup", function() {
@@ -51,17 +49,17 @@ console.log(":contains('"+user+"')")
       alert('ユーザー検索に失敗しました');
     })
   });
-        $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
-        var thisUser = $(this).data();
-          addMember(thisUser);
-          removeUser(thisUser);
-        });
 
-        $(document).on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function(){
-        var thisUser = $(this).siblings().text();
-          removeMenber(thisUser);
-          console.log($(this).siblings())
-      });
+  $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
+  var thisUser = $(this).data();
+    addMember(thisUser);
+    removeUser(thisUser);
+  });
+
+  $(document).on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function(){
+  var thisUser = $(this).siblings().text();
+    removeMenber(thisUser);
+  });
 });
 
 
