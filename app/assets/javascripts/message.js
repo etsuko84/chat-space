@@ -1,5 +1,4 @@
 $(function(){
-
   function buildHTML(message){
   var insertImage = '';
   if (message.image.url) {
@@ -18,31 +17,27 @@ $(function(){
     return html;
   }
 
-  $('form').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
-
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+  $.ajax({
+      url: location.href,
+      type: 'GET',
+      dataType: 'json'
     })
-
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form__message').val('')
-    })
-    .fail(function(){
-     alert('error');
-     })
-     $('html, body').animate({
-      scrollTop: $(document).height()
-      },1500);
-      return false;
-    })
+  .done(function(json) {
+    var id = $('.message:last').data('messageId');
+    var insertHTML = '';
+    json.messages.forEach(function(message) {
+      if (message.id > id) {
+      insertHTML += buildHTML(message);
+      }
+    });
+    $('.messages').append(insertHTML);
+  })
+  .fail(function(json) {
+    alert('自動更新に失敗しました');
+  });
+  } else {
+    clearInterval(interval);
+    }} , 1 * 1000);
 });
