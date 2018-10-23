@@ -33,6 +33,8 @@ $(function(){
       }
     });
     $('.messages').append(insertHTML);
+    $('.hidden').val('')
+
   })
   .fail(function(json) {
     alert('自動更新に失敗しました');
