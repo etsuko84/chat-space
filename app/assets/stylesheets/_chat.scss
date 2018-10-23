@@ -4,6 +4,7 @@ $members-color: #999;
 .chat {
   float: right;
   width: calc(100vw - 300px);
+  display: block;
   .header {
     height: 100px;
     padding: 0 40px;
@@ -42,11 +43,13 @@ $members-color: #999;
   }
   .messages {
     box-sizing: border-box;
+    background-color: #FAFAFA;
+    min-height: 800px;
     height: calc(100% - 100px - 90px);
     padding: 46px 40px 0;
+    overflow: scroll;
     margin-bottom: 90px;
       .message {
-        background-color: #FAFAFA;
         margin-bottom: 40px;
           .upper-message__user-name {
             display: inline-block;
