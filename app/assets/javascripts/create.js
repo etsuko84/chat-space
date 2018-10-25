@@ -36,12 +36,13 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
+      $('.hidden').val('')
     })
     .fail(function(){
      alert('error');
      })
      $('html, body').animate({
-      scrollTop: $(document).height()
+      scrollTop: $('.messages').height()
       },1500);
       return false;
     })
