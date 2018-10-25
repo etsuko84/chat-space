@@ -30,6 +30,7 @@ $(".chat-group-users.js-add-user").children().remove(":contains('"+user+"')");
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
 
+    if (input.length !== 0) {
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -48,6 +49,10 @@ $(".chat-group-users.js-add-user").children().remove(":contains('"+user+"')");
     .fail(function(){
       alert('ユーザー検索に失敗しました');
     })
+}
+else {
+search_list.remove();
+}
   });
 
   $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
