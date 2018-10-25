@@ -33,7 +33,7 @@ $(function(){
       }
     });
     $('.messages').append(insertHTML);
-    $('.hidden').val('')
+
 
   })
   .fail(function(json) {
@@ -41,5 +41,5 @@ $(function(){
   });
   } else {
     clearInterval(interval);
-    }} , 1 * 1000);
+    }} , 5 * 1000);
 });
