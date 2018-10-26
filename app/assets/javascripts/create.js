@@ -21,7 +21,9 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
+    var targetY = $('.js-messages').height();
+    var sideY = $('.groups').height() - 50;
 
     $.ajax({
       url: url,
@@ -41,9 +43,11 @@ $(function(){
     .fail(function(){
      alert('error');
      })
+if (targetY > sideY) {
      $('html, body').animate({
-      scrollTop: $('.messages').height()
-      },1500);
+      scrollTop: targetY
+    },1500);
+ }
       return false;
     })
 });
